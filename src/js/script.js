@@ -6,14 +6,14 @@ $(document).ready(function() {
     //Appends the image to Cell
     function displayImage(cell, turn) {
         if (turn % 2 == 0) {
-            cell.append('<img class="image" src="src/img/o.png" alt="">');
+            cell.append('<img class="image" src="src/img/x.png" alt="">');
             setTimeout(
                 function() {
                     $("#p2-flag").removeClass('hide')
                     $("#p1-flag").addClass('hide')
                 }, 200);
         } else {
-            cell.append('<img class="image" src="src/img/x.png" alt="">');
+            cell.append('<img class="image" src="src/img/o.png" alt="">');
             setTimeout(
                 function() {
                     $("#p1-flag").removeClass('hide')
@@ -21,11 +21,15 @@ $(document).ready(function() {
                 }, 200);
         }
     }
-    //Appends the corresponding image to array
+
+    //Appends the corresponding image to array and put highlight to the latest move
     function insertTurn(cell, turn) {
         let id = $(cell).attr('id')
         let img = turn % 2 === 0 ? 'O' : 'X';
         gameBoard[id] = img;
+
+        $("#0,#1,#2,#3,#4,#5,#6,#7,#8").css("background", "#ffffff")
+        $("#" + id).css("background", "#237efc")
     }
 
     function currentPlayer() {
@@ -57,6 +61,21 @@ $(document).ready(function() {
                 winner = true;
                 let playerWin = currentPlayer() == 'O' ? "PLAYER 1" : "PLAYER 2"
                 $("#winner").text(playerWin + " WINS THE GAME")
+                $("#p2-flag").hide()
+                $("#p1-flag").hide()
+                $("#prompt").removeClass("hide")
+                setTimeout(
+                    function() {
+                        $("#timer").text("5")
+                        setTimeout(
+                            function() {
+                                $("#timer").text("4")
+                                setTimeout(
+                                    function() {
+                                        $("#timer").text("3")
+                                    }, 1000);
+                            }, 1000);
+                    }, 100);
             }
         });
 
