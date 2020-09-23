@@ -11,45 +11,47 @@
 </head>
 
 <body>
-    <div class="grid-container">
-        <div class="grid-item">
-            <h2 style="margin-top:100px;text-align: right;">PLAYER 1</h2>
-            <div id="p1-flag" class="p1-flag">
-                <p>Your Turn</p>
+    <div class="bg">
+        <div class="grid-container">
+            <div class="grid-item">
+                <h2 style="margin-top:100px;text-align: right;">PLAYER 1</h2>
+                <div id="p1-flag" class="p1-flag fade-in">
+                    <p>Your Turn</p>
+                </div>
             </div>
-        </div>
-        <div class="grid-item">
-            <h1 class="title">TIC TAC TOE</h1>
-            <div class="holder">
-                <div style="width:615px;">
-                    <div id="0" class="box"></div>
-                    <div id="1" class="box"></div>
-                    <div id="2" class="box"></div>
-                    <br>
-                    <div id="3" class="box"></div>
-                    <div id="4" class="box"></div>
-                    <div id="5" class="box"></div>
-                    <br>
-                    <div id="6" class="box"></div>
-                    <div id="7" class="box"></div>
-                    <div id="8" class="box"></div>
+            <div class="grid-item">
+                <h1 class="title">TIC TAC TOE</h1>
+                <div class="holder">
+                    <div style="width:615px;">
+                        <div id="0" class="box"></div>
+                        <div id="1" class="box"></div>
+                        <div id="2" class="box"></div>
+                        <br>
+                        <div id="3" class="box"></div>
+                        <div id="4" class="box"></div>
+                        <div id="5" class="box"></div>
+                        <br>
+                        <div id="6" class="box"></div>
+                        <div id="7" class="box"></div>
+                        <div id="8" class="box"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid-item">
+                <h2 style="margin-top:100px;text-align: left;">PLAYER 2</h2>
+                <div id="p2-flag" class="p2-flag hide fade-in">
+                    <p>Your Turn</p>
                 </div>
             </div>
         </div>
-        <div class="grid-item">
-            <h2 style="margin-top:100px;text-align: left;">PLAYER 2</h2>
-            <div id="p2-flag" class="p2-flag hide">
-                <p>Your Turn</p>
-            </div>
-        </div>
-    </div>
-    <div id="prompt" class="promt hide">
-        <img class="imageTrophy" src="src/img/trophy.png" alt="">
-        <h3 id="winner" class="winner"></h3>
-        <h4 style="text-align:center;color:white;">THE GAME WILL BE RESTARTED IN</h4>
-        <div class="circle-outer">
-            <div class="circle-inner">
-                <h1 id="timer" style="text-align:center;color:white"></h1>
+        <div id="prompt" class="promt fade-in hide">
+            <img class="imageTrophy" src="src/img/trophy.png" alt="">
+            <h3 id="winner" class="winner"></h3>
+            <h4 style="text-align:center;color:white;">THE GAME WILL BE RESTARTED IN</h4>
+            <div class="circle-outer">
+                <div class="circle-inner">
+                    <h1 id="timer" style="text-align:center;color:white"></h1>
+                </div>
             </div>
         </div>
     </div>

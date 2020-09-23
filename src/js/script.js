@@ -28,8 +28,8 @@ $(document).ready(function() {
         let img = turn % 2 === 0 ? 'O' : 'X';
         gameBoard[id] = img;
 
-        $("#0,#1,#2,#3,#4,#5,#6,#7,#8").css("background", "#ffffff")
-        $("#" + id).css("background", "#237efc")
+        $("#0,#1,#2,#3,#4,#5,#6,#7,#8").css("background", "rgb(255, 255, 255,0)")
+        $("#" + id).css("background", "#f6fc77")
     }
 
     function currentPlayer() {
@@ -61,29 +61,60 @@ $(document).ready(function() {
                 winner = true;
                 let playerWin = currentPlayer() == 'O' ? "PLAYER 1" : "PLAYER 2"
                 $("#winner").text(playerWin + " WINS THE GAME")
+                $("#prompt").removeClass("hide")
                 $("#p2-flag").hide()
                 $("#p1-flag").hide()
-                $("#prompt").removeClass("hide")
-                setTimeout(
-                    function() {
-                        $("#timer").text("5")
-                        setTimeout(
-                            function() {
-                                $("#timer").text("4")
-                                setTimeout(
-                                    function() {
-                                        $("#timer").text("3")
-                                    }, 1000);
-                            }, 1000);
-                    }, 100);
+                restart();
             }
         });
 
     }
 
+    function restart() {
+        setTimeout(
+            function() {
+                $("#timer").text("5")
+                setTimeout(
+                    function() {
+                        $("#timer").text("4")
+                        setTimeout(
+                            function() {
+                                $("#timer").text("3")
+                                setTimeout(
+                                    function() {
+                                        $("#timer").text("2")
+                                        setTimeout(
+                                            function() {
+                                                $("#timer").text("1")
+                                                setTimeout(
+                                                    function() {
+                                                        $("#timer").text("0")
+                                                        winner = false;
+                                                        gameBoard = ['', '', '', '', '', '', '', '', ''];
+                                                        turn = 0
+                                                        $("#0,#1,#2,#3,#4,#5,#6,#7,#8").children().remove()
+                                                        $("#0,#1,#2,#3,#4,#5,#6,#7,#8").css("background", "rgb(255, 255, 255,0)")
+                                                        $("#prompt").addClass("hide")
+                                                        $("#p1-flag").removeClass('hide')
+                                                        $("#p2-flag").removeClass('hide')
+                                                        $("#p1-flag").show()
+                                                        $("#p2-flag").show()
+                                                        $("#p2-flag").addClass('hide')
+                                                    }, 1000);
+                                            }, 1000);
+                                    }, 1000);
+                            }, 1000);
+                    }, 1000);
+            }, 100);
+    }
+
     function checkIfTie() {
         if (turn == 9) {
-            alert('game over a tie')
+            $("#winner").text("IT'S A TIE")
+            $("#prompt").removeClass("hide")
+            $("#p2-flag").hide()
+            $("#p1-flag").hide()
+            restart();
         }
     }
 

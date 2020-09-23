@@ -1,5 +1,12 @@
+body {
+    background: url('../img/bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 body,
 html {
+    height: 100%;
     margin: 0;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
@@ -37,6 +44,7 @@ html {
     display: inline-block;
     margin-left: -4px;
     margin-bottom: -4px;
+    box-shadow: 0px 0px 5px #0704a7;
 }
 
 .p1-flag {
@@ -86,7 +94,7 @@ html {
 
 .promt {
     position: absolute;
-    background: blue;
+    background: rgb(0, 0, 255, 0.93);
     width: 700px;
     height: 400px;
     left: 22%;
@@ -120,4 +128,17 @@ html {
     background-color: blue;
     border-radius: 50%;
     display: inline-block;
+}
+
+.fade-in {
+    animation: fadein .5s;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
