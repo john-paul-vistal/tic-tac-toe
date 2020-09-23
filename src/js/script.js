@@ -55,13 +55,16 @@ $(document).ready(function() {
             if (gameBoard[cell1] === currentPlayer() &&
                 gameBoard[cell2] === currentPlayer() &&
                 gameBoard[cell3] === currentPlayer()) {
-                $("#" + cell1).css("background", "#1b1c1c")
-                $("#" + cell2).css("background", "#1b1c1c")
-                $("#" + cell3).css("background", "#1b1c1c")
+                $("#" + cell1).css("background", "#ff1100")
+                $("#" + cell2).css("background", "#ff1100")
+                $("#" + cell3).css("background", "#ff1100")
                 winner = true;
                 let playerWin = currentPlayer() == 'O' ? "PLAYER 1" : "PLAYER 2"
                 $("#winner").text(playerWin + " WINS THE GAME")
-                $("#prompt").removeClass("hide")
+                setTimeout(
+                    function() {
+                        $("#prompt").removeClass("hide")
+                    }, 300);
                 $("#p2-flag").hide()
                 $("#p1-flag").hide()
                 restart();
